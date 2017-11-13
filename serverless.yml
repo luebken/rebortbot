@@ -62,8 +62,8 @@ functions:
 
 #    Define function environment variables here
     environment:
-      WEBHOOK_SECRET: development
-      APP_ID: 0000
+      WEBHOOK_SECRET: ${env:WEBHOOK_SECRET}
+      APP_ID: ${env:APP_ID}
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
