@@ -1,5 +1,7 @@
 # Report bot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/luebken/reportbot.svg)](https://greenkeeper.io/)
+
 Collects metrics over time and reports that somewhere else.
 
 ## MVP
