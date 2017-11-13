@@ -64,6 +64,9 @@ functions:
     environment:
       WEBHOOK_SECRET: ${env:WEBHOOK_SECRET}
       APP_ID: ${env:APP_ID}
+      TRELLO_API_KEY: ${env:TRELLO_API_KEY}
+      TRELLO_DEV_TOKEN: ${env:TRELLO_DEV_TOKEN}
+      TRELLO_CARD_ID: ${env:TRELLO_CARD_ID}
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
