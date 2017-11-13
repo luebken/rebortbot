@@ -65,4 +65,36 @@ up.json:
   ]
 }
 
+package.json:
+{
+  "name": "reportbot",
+  "version": "0.0.1",
+  "description": "Collects metrics over time and reports that somewhere else.",
+  "main": "app.js",
+  "scripts": {
+    "start": "probot run ./app.js",
+    "test": "jest && standard"
+  },
+  "dependencies": {
+    "probot": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^21.2.1",
+    "localtunnel": "^1.8.2",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
 
