@@ -10,13 +10,18 @@ module.exports = function (robot) {
   })
 }
 
-
 const createComment = async (robot, context, action) => {
-  const github = await robot.app.asInstallation(context.payload.installation.id)
-  const body = { body: `Thanks for ${action} this issue! :tada: :thumbsup: :thumbsup:` }
-  trello.addCommentToCard(process.env.TRELLO_CARD_ID, body.body, (res) => {
-    console.log('res from addCommentToCard:', res)
+
+  //Trello
+  const issueURL = context.payload.issue.html_url
+  const trelloCommentBody = `Thanks for ${action} the issue ${issueURL} :tada:`
+  trello.addCommentToCard(process.env.TRELLO_CARD_ID, trelloCommentBody, (r1, r2) => {
+    console.log('res from addCommentToCard:', r1, r2)
   });
+
+  //Github
+  const github = await robot.app.asInstallation(context.payload.installation.id)
+  const body = { body: `Thanks for ${action} this issue! :tada:\nReported at https://trello.com/c/${process.env.TRELLO_CARD_ID}` }
 
   return github.issues.createComment(context.issue(body))
 }
