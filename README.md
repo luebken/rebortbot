@@ -1,12 +1,24 @@
 # Report bot
 
-Collects metrics over time and reports that somewhere else.
+Report development updates to planning tools.
 
 ## MVP
 
-Collect Github issues and report the summary to a Trello Card. 
+Collect issues and commits and report them on a regular cadance to a Trello Card.
 
 Build with https://probot.github.io and https://serverless.com/ running on https://aws.amazon.com/lambda/. Builds on https://github.com/tcbyrd/probot-lambda.
+
+Planned setup:
+  * Activate report bot per Github repo
+  * Select a Trello Card (via Card URL)
+  * Optional: Select period and time of report
+    Default: Sunday night, weekly
+  * Optional: Select list of labels to track or all (default)
+
+Planned report:
+  * Issues (Active, New)
+  * PRs / Commits (Active, Merged)
+  * Active users
 
 ## Deployment
 
