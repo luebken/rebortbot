@@ -1,3 +1,5 @@
+var report = require("./report");
+
 // Webpack setup
 require.include('probot')
 // If using webpack, uncomment this line to ensure
@@ -36,15 +38,15 @@ module.exports.autoResponder = function (event, context, callback) {
       event: e,
       payload: event.body
     })
-    .then(() => {
-      const res = {
-        statusCode: 200,
-        body: JSON.stringify({
-          message: 'Executed'
-        })
-      }
-      callback(null, res)
-    })
+      .then(() => {
+        const res = {
+          statusCode: 200,
+          body: JSON.stringify({
+            message: 'Executed'
+          })
+        }
+        callback(null, res)
+      })
 
   } catch (err) {
     console.log(err)
@@ -52,3 +54,11 @@ module.exports.autoResponder = function (event, context, callback) {
   }
 
 }
+
+// cron job
+module.exports.createReport = function (event, context, callback) {
+
+  report.createReport()
+
+  callback()
+} 

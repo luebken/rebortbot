@@ -13,8 +13,15 @@ provider:
   name: aws
   runtime: nodejs6.10
 
-# you can define service wide environment variables here
-#  environment:
+  environment:
+    WEBHOOK_SECRET: ${env:WEBHOOK_SECRET}
+    APP_ID: ${env:APP_ID}
+    TRELLO_API_KEY: ${env:TRELLO_API_KEY}
+    TRELLO_DEV_TOKEN: ${env:TRELLO_DEV_TOKEN}
+    TRELLO_CARD_ID: ${env:TRELLO_CARD_ID}
+    GITHUB_OWNER: ${env:GITHUB_OWNER}
+    GITHUB_REPO: ${env:GITHUB_REPO}
+
 #    variable1: value1
 
 #  exclude:
@@ -24,19 +31,15 @@ provider:
 functions:
   probot:
     handler: handler.autoResponder
-
-    # Define function environment variables here
-    environment:
-      WEBHOOK_SECRET: ${env:WEBHOOK_SECRET}
-      APP_ID: ${env:APP_ID}
-      TRELLO_API_KEY: ${env:TRELLO_API_KEY}
-      TRELLO_DEV_TOKEN: ${env:TRELLO_DEV_TOKEN}
-      TRELLO_CARD_ID: ${env:TRELLO_CARD_ID}
-
     events:
      - http:
          path: probot
          method: post
+
+  createReport:
+    handler: handler.createReport
+    events:
+     - schedule: rate(1 day)
 
 # you can add CloudFormation resource templates here
 #resources:

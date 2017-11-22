@@ -72,6 +72,10 @@ Planned report:
   export TRELLO_DEV_TOKEN=<TODO>
   export TRELLO_USER=<TODO>
   export TRELLO_CARD_ID=<TODO>
+
+  # Github
+  export GITHUB_OWNER=<TODO>
+  export GITHUB_REPO=<TODO>
   ````
 
 ## Deployment
